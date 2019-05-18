@@ -48,8 +48,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOe-uQ-fEI">
                                                     <rect key="frame" x="0.0" y="21" width="352" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x times a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-Y3-vUa">
                                                     <rect key="frame" x="0.0" y="39" width="352" height="18"/>
@@ -170,6 +170,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="wKc-oQ-lf3" kind="presentation" identifier="addPillSegue" id="hhN-rR-YXi"/>
+                        <segue destination="sMl-4R-yTs" kind="show" identifier="editPillSegue" id="n6a-4K-qvB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIm-8J-eC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -246,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bJ-Wb-Qrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3355.072463768116" y="-883.25892857142856"/>
+            <point key="canvasLocation" x="3326" y="-883"/>
         </scene>
         <!--Pills-->
         <scene sceneID="Leu-VF-YZd">
@@ -299,10 +300,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ArG-u4-aun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2444.9275362318845" y="-883.25892857142856"/>
+            <point key="canvasLocation" x="2461" y="-496"/>
         </scene>
     </scenes>
     <resources>
         <image name="medicine" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="n6a-4K-qvB"/>
+    </inferredMetricsTieBreakers>
 </document>

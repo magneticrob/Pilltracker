@@ -63,12 +63,24 @@ class PillsViewController: UITableViewController {
         return UIView.init()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let pill = pills[indexPath.row]
+        self.performSegue(withIdentifier: "editPillSegue", sender: pill)
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addPillSegue", let navigationController = segue.destination as? UINavigationController, let addPillController = navigationController.topViewController as? AddPillViewController {
             addPillController.delegate = self
+        }
+        
+        if segue.identifier == "editPillSegue", let addPillController = segue.destination as? AddPillViewController, let pill = sender as? Pill {
+            addPillController.delegate = self
+            addPillController.pill = pill
         }
     }
 }

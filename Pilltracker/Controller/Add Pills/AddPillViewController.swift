@@ -23,19 +23,38 @@ class AddPillViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: AddPillViewControllerDelegate?
+    
+    var pill: Pill?
+    var pillViewModel: PillViewModel?
     var pillNameField: UITextField?
     var pillMgField: UITextField?
     var pillFrequencyField: UITextField?
+    var doseTimes: [Date] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        if let pill = pill {
+            pillViewModel = PillViewModel.init(model: pill)
+            doseTimes = pill.doseTimes
+        }
     }
     
     @IBAction func tappedCancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss()
+    }
+    
+    func dismiss() {
+        self.delegate?.addPillViewControllerExited()
+        
+        if isBeingPresented {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func tappedSave(_ sender: Any) {
@@ -52,10 +71,17 @@ class AddPillViewController: UIViewController {
             return
         }
         
-        let pill = Pill.init(id: UUID.init(), name: pillName, mg: pillMg, frequency: frequency, doseTimes: [])
+        var uuid: UUID!
+        if let pill = pill {
+            uuid = pill.id
+        } else {
+            uuid = UUID.init()
+        }
+        
+        let pill = Pill.init(id: uuid, name: pillName, mg: pillMg, frequency: frequency, doseTimes: doseTimes)
         UserDefaultsFetcher.init().saveOrUpdate(pill: pill)
-        self.delegate?.addPillViewControllerExited()
-        self.dismiss(animated: true, completion: nil)
+        
+        self.dismiss()
     }
 }
 
@@ -71,14 +97,17 @@ extension AddPillViewController: UITableViewDataSource, UITableViewDelegate {
         
         if row == .Name {
             cell.textView.placeholder = "Name"
+            cell.textView.text = pillViewModel?.name()
             self.pillNameField = cell.textView
         } else if row == .Mg {
             cell.textView.placeholder = "mg"
             cell.textView.keyboardType = .numberPad
+            cell.textView.text = pillViewModel?.mg()
             self.pillMgField = cell.textView
         } else if row == .Frequency {
             cell.textView.placeholder = "Frequency (times a day)"
             cell.textView.keyboardType = .numberPad
+            cell.textView.text = pillViewModel?.frequencyCount()
             self.pillFrequencyField = cell.textView
         } else if row == .DoseTimes {
             cell.textView.placeholder = "Dosage Times"
@@ -102,7 +131,10 @@ extension AddPillViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         guard let frequencyTextField = self.pillFrequencyField,
             frequencyTextField == textField,
-            reason == .committed else { return }
+            reason == .committed,
+            let frequencyText = textField.text,
+            let frequency = Int(frequencyText) else { return }
+        
         
     }
 }

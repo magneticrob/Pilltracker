@@ -27,6 +27,14 @@ class PillViewModel {
         return "\(model.frequency) times a day"
     }
     
+    func frequencyCount() -> String {
+        return "\(model.frequency)"
+    }
+    
+    func mg() -> String {
+        return "\(model.mg)"
+    }
+    
     func times() -> String {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "HH:mm"

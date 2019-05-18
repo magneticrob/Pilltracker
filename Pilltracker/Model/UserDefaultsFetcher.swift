@@ -63,9 +63,9 @@ class UserDefaultsFetcher {
     func saveOrUpdate(pill: Pill) {
         var pills = savedPills()
         
-        if let pill = fetchPill(id: pill.id) {
-            pills.removeAll(where: {$0.id == pill.id})
-            pills.append(pill)
+        if let index = pills.firstIndex(where: {$0.id == pill.id}) {
+            pills.remove(at: index)
+            pills.insert(pill, at: index)
         } else {
             pills.append(pill)
         }
