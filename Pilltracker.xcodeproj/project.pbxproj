@@ -23,6 +23,7 @@
 		C96B20682290342E002C2689 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B20672290342E002C2689 /* TextViewTableViewCell.swift */; };
 		C96B206B229034F3002C2689 /* UserDefaults+SaveStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B206A229034F3002C2689 /* UserDefaults+SaveStructs.swift */; };
 		C96B206D22903539002C2689 /* UserDefaultsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B206C22903539002C2689 /* UserDefaultsFetcher.swift */; };
+		C96B207022906888002C2689 /* PillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B206F22906888002C2689 /* PillViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		C96B20672290342E002C2689 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		C96B206A229034F3002C2689 /* UserDefaults+SaveStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+SaveStructs.swift"; sourceTree = "<group>"; };
 		C96B206C22903539002C2689 /* UserDefaultsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFetcher.swift; sourceTree = "<group>"; };
+		C96B206F22906888002C2689 /* PillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				C96B2022229027CE002C2689 /* AppDelegate.swift */,
 				C96B205422902D0D002C2689 /* Model */,
 				C96B205322902D07002C2689 /* View */,
+				C96B206E22906876002C2689 /* View Model */,
 				C96B205222902D01002C2689 /* Controller */,
 				C96B205922902F16002C2689 /* Storyboards */,
 				C96B2069229034E0002C2689 /* Extensions */,
@@ -230,6 +233,14 @@
 				C96B206A229034F3002C2689 /* UserDefaults+SaveStructs.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C96B206E22906876002C2689 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				C96B206F22906888002C2689 /* PillViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +377,7 @@
 				C96B206D22903539002C2689 /* UserDefaultsFetcher.swift in Sources */,
 				C96B206B229034F3002C2689 /* UserDefaults+SaveStructs.swift in Sources */,
 				C96B20632290314E002C2689 /* PillTableViewCell.swift in Sources */,
+				C96B207022906888002C2689 /* PillViewModel.swift in Sources */,
 				C96B2065229033CE002C2689 /* NoPillsTableViewCell.swift in Sources */,
 				C96B2023229027CE002C2689 /* AppDelegate.swift in Sources */,
 				C96B205822902E8E002C2689 /* Dose.swift in Sources */,

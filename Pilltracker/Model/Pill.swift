@@ -9,18 +9,9 @@
 import Foundation
 
 struct Pill: Codable {
-    let id: String
+    let id: UUID
     let name: String
     let mg: Int
     let frequency: Int
     let doseTimes: [Date]
-    
-    func save() {
-        let userDefaults = UserDefaultsFetcher.init()
-        if var array = userDefaults.savedPills() {
-            array.removeAll(where: {$0.id == id})
-            array.append(self)
-            userDefaults.updatePills(array)
-        }
-    }
 }

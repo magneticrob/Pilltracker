@@ -13,14 +13,12 @@ class UserDefaultsFetcher {
     let dosagesKey = "dosages"
     let pillsKey = "dosages"
     
-    func savedPills() -> [Pill]? {
-        guard let pills = userDefaults.structArrayData(Pill.self, forKey: pillsKey) as? [Pill] else { return nil }
-        return pills
+    func savedPills() -> [Pill] {
+        return userDefaults.structArrayData(Pill.self, forKey: pillsKey)
     }
     
-    func savedDose() -> [Dose]? {
-        guard let dosages = userDefaults.structArrayData(Dose.self, forKey: pillsKey) as? [Dose] else { return nil }
-        return dosages
+    func savedDoses() -> [Dose] {
+        return userDefaults.structArrayData(Dose.self, forKey: dosagesKey)
     }
     
     func updatePills(_ pills: [Pill]) {
@@ -31,9 +29,8 @@ class UserDefaultsFetcher {
         userDefaults.setStructArray(doses, forKey: dosagesKey)
     }
     
-    func fetchPill(id: String) -> Pill? {
-        guard let pills = savedPills() else { return nil }
-        
+    func fetchPill(id: UUID) -> Pill? {
+        let pills = savedPills()
         if let matchingPill = pills.first(where: {$0.id == id}) {
             return matchingPill
         }
@@ -41,13 +38,38 @@ class UserDefaultsFetcher {
         return nil
     }
     
-    func fetchDose(id: String) -> Dose? {
-        guard let doses = savedDose() else { return nil }
-        
+    func fetchDose(id: UUID) -> Dose? {
+        let doses = savedDoses()
         if let matchingDose = doses.first(where: {$0.id == id}) {
             return matchingDose
         }
         
         return nil
+    }
+    
+    func saveOrUpdate(dose: Dose) {
+        var doses = savedDoses()
+        
+        if let dose = fetchDose(id: dose.id) {
+            doses.removeAll(where: {$0.id == dose.id})
+            doses.append(dose)
+        } else {
+            doses.append(dose)
+        }
+        
+        updateDoses(doses)
+    }
+    
+    func saveOrUpdate(pill: Pill) {
+        var pills = savedPills()
+        
+        if let pill = fetchPill(id: pill.id) {
+            pills.removeAll(where: {$0.id == pill.id})
+            pills.append(pill)
+        } else {
+            pills.append(pill)
+        }
+        
+        updatePills(pills)
     }
 }

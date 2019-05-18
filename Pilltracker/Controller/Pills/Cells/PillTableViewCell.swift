@@ -14,16 +14,19 @@ class PillTableViewCell: UITableViewCell {
     @IBOutlet weak var strengthLabel: UILabel!
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var timesLabel: UILabel!
+    @IBOutlet weak var nextDoseLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func update(pill: Pill) {
+        let viewModel = PillViewModel.init(model: pill)
+        nameLabel.text = viewModel.name()
+        strengthLabel.text = viewModel.strength()
+        frequencyLabel.text = viewModel.frequency()
+        timesLabel.text = viewModel.times()
+        nextDoseLabel.text = viewModel.nextDose()
     }
-
 }
