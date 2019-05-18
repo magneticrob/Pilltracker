@@ -50,10 +50,10 @@ class AddPillViewController: UIViewController {
     func dismiss() {
         self.delegate?.addPillViewControllerExited()
         
-        if isBeingPresented {
-            self.dismiss(animated: true, completion: nil)
-        } else {
+        if let _ = pill {
             self.navigationController?.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
