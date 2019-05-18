@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Graph-->
+        <scene sceneID="x9q-eN-lBh">
+            <objects>
+                <viewController id="lql-FZ-utt" customClass="GraphViewController" customModule="Pilltracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KZ9-jB-ajv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0Zr-6S-KN4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Graph" id="Thh-9y-qho"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32j-TR-gUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="-181"/>
+        </scene>
+        <!--Pills-->
+        <scene sceneID="P7r-g4-HtP">
+            <objects>
+                <tableViewController id="AQL-Ef-ML0" customClass="PillsViewController" customModule="Pilltracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gsw-xZ-nEN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PillTableViewCell" rowHeight="101" id="TF3-xq-Sfe" customClass="PillTableViewCell" customModule="Pilltracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="101"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TF3-xq-Sfe" id="Ahu-r3-WD3">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="100.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76K-Pi-v7J">
+                                            <rect key="frame" x="12" y="13" width="352" height="75"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOe-uQ-fEI">
+                                                    <rect key="frame" x="0.0" y="21" width="352" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x times a day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-Y3-vUa">
+                                                    <rect key="frame" x="0.0" y="39" width="352" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00am, 4:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZZ-s8-Uvr">
+                                                    <rect key="frame" x="0.0" y="57" width="352" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of pill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeM-Qz-HwW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="352" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="qhs-Y3-vUa" firstAttribute="top" secondItem="AOe-uQ-fEI" secondAttribute="bottom" id="BgF-Yy-HdQ"/>
+                                                <constraint firstItem="UeM-Qz-HwW" firstAttribute="top" secondItem="76K-Pi-v7J" secondAttribute="top" id="ChU-LO-wzq"/>
+                                                <constraint firstAttribute="trailing" secondItem="AOe-uQ-fEI" secondAttribute="trailing" id="Gbl-FW-zYW"/>
+                                                <constraint firstAttribute="trailing" secondItem="UeM-Qz-HwW" secondAttribute="trailing" id="MgV-eK-GD4"/>
+                                                <constraint firstItem="AOe-uQ-fEI" firstAttribute="top" secondItem="UeM-Qz-HwW" secondAttribute="bottom" id="Mi8-hf-yVK"/>
+                                                <constraint firstItem="AOe-uQ-fEI" firstAttribute="leading" secondItem="76K-Pi-v7J" secondAttribute="leading" id="Raq-Mn-8GE"/>
+                                                <constraint firstItem="UeM-Qz-HwW" firstAttribute="leading" secondItem="76K-Pi-v7J" secondAttribute="leading" id="ehy-nj-wFe"/>
+                                                <constraint firstAttribute="bottom" secondItem="SZZ-s8-Uvr" secondAttribute="bottom" id="gD2-Kf-Xwu"/>
+                                                <constraint firstItem="SZZ-s8-Uvr" firstAttribute="top" secondItem="qhs-Y3-vUa" secondAttribute="bottom" id="kPN-WF-kQp"/>
+                                                <constraint firstItem="qhs-Y3-vUa" firstAttribute="leading" secondItem="76K-Pi-v7J" secondAttribute="leading" id="lSF-aU-6OM"/>
+                                                <constraint firstItem="SZZ-s8-Uvr" firstAttribute="leading" secondItem="76K-Pi-v7J" secondAttribute="leading" id="pro-kQ-EAK"/>
+                                                <constraint firstAttribute="trailing" secondItem="qhs-Y3-vUa" secondAttribute="trailing" id="sLC-8m-opx"/>
+                                                <constraint firstAttribute="trailing" secondItem="SZZ-s8-Uvr" secondAttribute="trailing" id="yeE-Pv-4CG"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="76K-Pi-v7J" firstAttribute="leading" secondItem="Ahu-r3-WD3" secondAttribute="leading" constant="12" id="pQL-1b-eqe"/>
+                                        <constraint firstAttribute="trailing" secondItem="76K-Pi-v7J" secondAttribute="trailing" constant="12" id="yGP-ge-NLS"/>
+                                        <constraint firstItem="76K-Pi-v7J" firstAttribute="centerY" secondItem="Ahu-r3-WD3" secondAttribute="centerY" id="zgb-2c-bke"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="frequencyLabel" destination="qhs-Y3-vUa" id="iVT-KG-JVv"/>
+                                    <outlet property="nameLabel" destination="UeM-Qz-HwW" id="Uto-U5-9fO"/>
+                                    <outlet property="strengthLabel" destination="AOe-uQ-fEI" id="bGO-38-M8r"/>
+                                    <outlet property="timesLabel" destination="SZZ-s8-Uvr" id="zUX-C5-iRw"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoPillsTableViewCell" rowHeight="278" id="y11-zV-lwa" customClass="NoPillsTableViewCell" customModule="Pilltracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="129" width="414" height="278"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y11-zV-lwa" id="jJN-xW-CSZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="277.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jn0-TH-neE">
+                                            <rect key="frame" x="119.5" y="89" width="175.5" height="99.5"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicine" translatesAutoresizingMaskIntoConstraints="NO" id="6Sg-tm-ZsL">
+                                                    <rect key="frame" x="15" y="0.0" width="145" height="77"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="77" id="KVU-e7-HAe"/>
+                                                        <constraint firstAttribute="width" constant="145" id="SjJ-Xx-g3F"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't added any pills yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxX-rn-3Tq">
+                                                    <rect key="frame" x="0.0" y="85" width="175.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                    <color key="textColor" red="0.65098488330841064" green="0.65097230672836304" blue="0.65098077058792114" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="jxX-rn-3Tq" secondAttribute="bottom" id="5j6-wv-R4E"/>
+                                                <constraint firstItem="6Sg-tm-ZsL" firstAttribute="centerX" secondItem="jn0-TH-neE" secondAttribute="centerX" id="FEd-Gb-iGT"/>
+                                                <constraint firstItem="6Sg-tm-ZsL" firstAttribute="top" secondItem="jn0-TH-neE" secondAttribute="top" id="HKm-dz-oz6"/>
+                                                <constraint firstAttribute="trailing" secondItem="jxX-rn-3Tq" secondAttribute="trailing" id="bko-Wi-Zrn"/>
+                                                <constraint firstItem="jxX-rn-3Tq" firstAttribute="leading" secondItem="jn0-TH-neE" secondAttribute="leading" id="d4S-Iq-7SL"/>
+                                                <constraint firstItem="jxX-rn-3Tq" firstAttribute="top" secondItem="6Sg-tm-ZsL" secondAttribute="bottom" constant="8" id="jWf-x8-kS2"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jn0-TH-neE" firstAttribute="centerY" secondItem="jJN-xW-CSZ" secondAttribute="centerY" id="8M4-pf-4ZG"/>
+                                        <constraint firstItem="jn0-TH-neE" firstAttribute="centerX" secondItem="jJN-xW-CSZ" secondAttribute="centerX" id="p5A-NS-Vdj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AQL-Ef-ML0" id="QEA-x0-yqk"/>
+                            <outlet property="delegate" destination="AQL-Ef-ML0" id="7d6-KF-80z"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pills" id="p5v-Ne-Wz5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="D15-1H-HIF">
+                            <connections>
+                                <action selector="tappedAdd:" destination="AQL-Ef-ML0" id="xsI-Uw-3JF"/>
+                                <segue destination="sMl-4R-yTs" kind="show" identifier="addPillSegue" id="pga-Vr-aDy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kIm-8J-eC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1621.7391304347827" y="-883.25892857142856"/>
+        </scene>
+        <!--Pills-->
+        <scene sceneID="x0V-z5-h6N">
+            <objects>
+                <viewController id="sMl-4R-yTs" customClass="AddPillViewController" customModule="Pilltracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZH3-Jq-8Bk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-nN-8bz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qTq-eO-xfO" customClass="TextViewTableViewCell" customModule="Pilltracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qTq-eO-xfO" id="bTZ-he-Koy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FNr-eY-hOR">
+                                                    <rect key="frame" x="12" y="0.0" width="402" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="FNr-eY-hOR" secondAttribute="trailing" id="5D7-dz-1Dr"/>
+                                                <constraint firstItem="FNr-eY-hOR" firstAttribute="leading" secondItem="bTZ-he-Koy" secondAttribute="leading" constant="12" id="Sh2-ce-n9W"/>
+                                                <constraint firstAttribute="bottom" secondItem="FNr-eY-hOR" secondAttribute="bottom" id="i8E-bR-iAX"/>
+                                                <constraint firstItem="FNr-eY-hOR" firstAttribute="top" secondItem="bTZ-he-Koy" secondAttribute="top" id="y26-Ca-A7D"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textView" destination="FNr-eY-hOR" id="Rh0-MG-zJg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SdI-gi-rl2" customClass="TextViewTableViewCell" customModule="Pilltracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SdI-gi-rl2" id="U8V-D2-Pgh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Count" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-Bb-QHX">
+                                                    <rect key="frame" x="12" y="0.0" width="402" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cRi-Bb-QHX" secondAttribute="trailing" id="Ueu-pe-hxQ"/>
+                                                <constraint firstItem="cRi-Bb-QHX" firstAttribute="leading" secondItem="U8V-D2-Pgh" secondAttribute="leading" constant="12" id="WwX-YD-PXe"/>
+                                                <constraint firstAttribute="bottom" secondItem="cRi-Bb-QHX" secondAttribute="bottom" id="g2l-8s-1O7"/>
+                                                <constraint firstItem="cRi-Bb-QHX" firstAttribute="top" secondItem="U8V-D2-Pgh" secondAttribute="top" id="oz6-4o-7Ud"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textView" destination="cRi-Bb-QHX" id="Ges-Df-a6j"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RQW-Ah-D0y" customClass="TextViewTableViewCell" customModule="Pilltracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RQW-Ah-D0y" id="mbz-vg-IG6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Frequency" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nro-SE-WKt">
+                                                    <rect key="frame" x="12" y="0.0" width="402" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Nro-SE-WKt" secondAttribute="trailing" id="PSY-VZ-JfM"/>
+                                                <constraint firstItem="Nro-SE-WKt" firstAttribute="top" secondItem="mbz-vg-IG6" secondAttribute="top" id="fWn-ts-hYL"/>
+                                                <constraint firstItem="Nro-SE-WKt" firstAttribute="leading" secondItem="mbz-vg-IG6" secondAttribute="leading" constant="12" id="kU7-34-opp"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nro-SE-WKt" secondAttribute="bottom" id="n7r-yS-CqB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textView" destination="Nro-SE-WKt" id="i7n-Vn-voa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RAa-PK-K6M" customClass="TextViewTableViewCell" customModule="Pilltracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="160" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RAa-PK-K6M" id="BUv-EZ-jYI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sby-DP-C0n">
+                                                    <rect key="frame" x="12" y="0.0" width="402" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Sby-DP-C0n" firstAttribute="top" secondItem="BUv-EZ-jYI" secondAttribute="top" id="Evj-lW-5wW"/>
+                                                <constraint firstItem="Sby-DP-C0n" firstAttribute="leading" secondItem="BUv-EZ-jYI" secondAttribute="leading" constant="12" id="M43-BQ-ICL"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sby-DP-C0n" secondAttribute="trailing" id="X16-Mm-y8k"/>
+                                                <constraint firstAttribute="bottom" secondItem="Sby-DP-C0n" secondAttribute="bottom" id="lLG-vQ-Oun"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textView" destination="Sby-DP-C0n" id="lO9-RH-bbm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ahr-sR-0uq" firstAttribute="trailing" secondItem="5Xh-nN-8bz" secondAttribute="trailing" id="DFl-XS-AM0"/>
+                            <constraint firstItem="ahr-sR-0uq" firstAttribute="bottom" secondItem="5Xh-nN-8bz" secondAttribute="bottom" id="JDm-Sb-4SF"/>
+                            <constraint firstItem="5Xh-nN-8bz" firstAttribute="leading" secondItem="ahr-sR-0uq" secondAttribute="leading" id="ODI-Xq-rkW"/>
+                            <constraint firstItem="5Xh-nN-8bz" firstAttribute="top" secondItem="ahr-sR-0uq" secondAttribute="top" id="XFt-3z-Bug"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ahr-sR-0uq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pills" id="XRh-tV-n37">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Hdy-QM-ZZc">
+                            <connections>
+                                <action selector="tappedSave:" destination="sMl-4R-yTs" id="scd-4F-Clr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bJ-Wb-Qrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445" y="-883"/>
+        </scene>
+        <!--Pills-->
+        <scene sceneID="Leu-VF-YZd">
+            <objects>
+                <navigationController id="zht-k7-WLl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pills" id="Qdu-Md-i3r"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cHz-Ga-394">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AQL-Ef-ML0" kind="relationship" relationship="rootViewController" id="PdH-pn-V6N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rta-rV-70F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="-883"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pX5-tL-pWi">
+            <objects>
+                <tabBarController id="ixU-RM-esv" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dGF-Cd-hGN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zht-k7-WLl" kind="relationship" relationship="viewControllers" id="Hfd-F0-scd"/>
+                        <segue destination="lql-FZ-utt" kind="relationship" relationship="viewControllers" id="qix-kW-FNh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLY-nA-MII" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="-577"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="medicine" width="512" height="512"/>
+    </resources>
+</document>

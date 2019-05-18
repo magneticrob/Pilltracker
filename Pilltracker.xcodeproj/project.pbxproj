@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		C96B2023229027CE002C2689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B2022229027CE002C2689 /* AppDelegate.swift */; };
-		C96B2025229027CE002C2689 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B2024229027CE002C2689 /* ViewController.swift */; };
 		C96B2028229027CE002C2689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96B2026229027CE002C2689 /* Main.storyboard */; };
 		C96B202A229027CF002C2689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96B2029229027CF002C2689 /* Assets.xcassets */; };
 		C96B202D229027CF002C2689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96B202B229027CF002C2689 /* LaunchScreen.storyboard */; };
 		C96B2038229027CF002C2689 /* PilltrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B2037229027CF002C2689 /* PilltrackerTests.swift */; };
 		C96B2043229027CF002C2689 /* PilltrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B2042229027CF002C2689 /* PilltrackerUITests.swift */; };
+		C96B205122902CFC002C2689 /* AddPillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B205022902CFC002C2689 /* AddPillViewController.swift */; };
+		C96B205622902DB2002C2689 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B205522902DB2002C2689 /* Pill.swift */; };
+		C96B205822902E8E002C2689 /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B205722902E8E002C2689 /* Dose.swift */; };
+		C96B205B22902F49002C2689 /* PillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B205A22902F49002C2689 /* PillsViewController.swift */; };
+		C96B205D22902F5A002C2689 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B205C22902F5A002C2689 /* GraphViewController.swift */; };
+		C96B20632290314E002C2689 /* PillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B20622290314E002C2689 /* PillTableViewCell.swift */; };
+		C96B2065229033CE002C2689 /* NoPillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B2064229033CE002C2689 /* NoPillsTableViewCell.swift */; };
+		C96B20682290342E002C2689 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B20672290342E002C2689 /* TextViewTableViewCell.swift */; };
+		C96B206B229034F3002C2689 /* UserDefaults+SaveStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B206A229034F3002C2689 /* UserDefaults+SaveStructs.swift */; };
+		C96B206D22903539002C2689 /* UserDefaultsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B206C22903539002C2689 /* UserDefaultsFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +45,6 @@
 /* Begin PBXFileReference section */
 		C96B201F229027CE002C2689 /* Pilltracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pilltracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96B2022229027CE002C2689 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C96B2024229027CE002C2689 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C96B2027229027CE002C2689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C96B2029229027CF002C2689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C96B202C229027CF002C2689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +55,16 @@
 		C96B203E229027CF002C2689 /* PilltrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PilltrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96B2042229027CF002C2689 /* PilltrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilltrackerUITests.swift; sourceTree = "<group>"; };
 		C96B2044229027CF002C2689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96B205022902CFC002C2689 /* AddPillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPillViewController.swift; sourceTree = "<group>"; };
+		C96B205522902DB2002C2689 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
+		C96B205722902E8E002C2689 /* Dose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dose.swift; sourceTree = "<group>"; };
+		C96B205A22902F49002C2689 /* PillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsViewController.swift; sourceTree = "<group>"; };
+		C96B205C22902F5A002C2689 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		C96B20622290314E002C2689 /* PillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillTableViewCell.swift; sourceTree = "<group>"; };
+		C96B2064229033CE002C2689 /* NoPillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPillsTableViewCell.swift; sourceTree = "<group>"; };
+		C96B20672290342E002C2689 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		C96B206A229034F3002C2689 /* UserDefaults+SaveStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+SaveStructs.swift"; sourceTree = "<group>"; };
+		C96B206C22903539002C2689 /* UserDefaultsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				C96B2022229027CE002C2689 /* AppDelegate.swift */,
-				C96B2024229027CE002C2689 /* ViewController.swift */,
-				C96B2026229027CE002C2689 /* Main.storyboard */,
+				C96B205422902D0D002C2689 /* Model */,
+				C96B205322902D07002C2689 /* View */,
+				C96B205222902D01002C2689 /* Controller */,
+				C96B205922902F16002C2689 /* Storyboards */,
+				C96B2069229034E0002C2689 /* Extensions */,
 				C96B2029229027CF002C2689 /* Assets.xcassets */,
-				C96B202B229027CF002C2689 /* LaunchScreen.storyboard */,
 				C96B202E229027CF002C2689 /* Info.plist */,
 			);
 			path = Pilltracker;
@@ -123,6 +143,93 @@
 				C96B2044229027CF002C2689 /* Info.plist */,
 			);
 			path = PilltrackerUITests;
+			sourceTree = "<group>";
+		};
+		C96B205222902D01002C2689 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C96B205F229030FF002C2689 /* Add Pills */,
+				C96B205E229030F9002C2689 /* Pills */,
+				C96B20602290310B002C2689 /* Graph */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C96B205322902D07002C2689 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C96B205422902D0D002C2689 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C96B205522902DB2002C2689 /* Pill.swift */,
+				C96B205722902E8E002C2689 /* Dose.swift */,
+				C96B206C22903539002C2689 /* UserDefaultsFetcher.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C96B205922902F16002C2689 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C96B202B229027CF002C2689 /* LaunchScreen.storyboard */,
+				C96B2026229027CE002C2689 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C96B205E229030F9002C2689 /* Pills */ = {
+			isa = PBXGroup;
+			children = (
+				C96B20612290311B002C2689 /* Cells */,
+				C96B205A22902F49002C2689 /* PillsViewController.swift */,
+			);
+			path = Pills;
+			sourceTree = "<group>";
+		};
+		C96B205F229030FF002C2689 /* Add Pills */ = {
+			isa = PBXGroup;
+			children = (
+				C96B20662290341F002C2689 /* Cells */,
+				C96B205022902CFC002C2689 /* AddPillViewController.swift */,
+			);
+			path = "Add Pills";
+			sourceTree = "<group>";
+		};
+		C96B20602290310B002C2689 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				C96B205C22902F5A002C2689 /* GraphViewController.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		C96B20612290311B002C2689 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C96B20622290314E002C2689 /* PillTableViewCell.swift */,
+				C96B2064229033CE002C2689 /* NoPillsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C96B20662290341F002C2689 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C96B20672290342E002C2689 /* TextViewTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C96B2069229034E0002C2689 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C96B206A229034F3002C2689 /* UserDefaults+SaveStructs.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +363,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96B2025229027CE002C2689 /* ViewController.swift in Sources */,
+				C96B206D22903539002C2689 /* UserDefaultsFetcher.swift in Sources */,
+				C96B206B229034F3002C2689 /* UserDefaults+SaveStructs.swift in Sources */,
+				C96B20632290314E002C2689 /* PillTableViewCell.swift in Sources */,
+				C96B2065229033CE002C2689 /* NoPillsTableViewCell.swift in Sources */,
 				C96B2023229027CE002C2689 /* AppDelegate.swift in Sources */,
+				C96B205822902E8E002C2689 /* Dose.swift in Sources */,
+				C96B205622902DB2002C2689 /* Pill.swift in Sources */,
+				C96B205D22902F5A002C2689 /* GraphViewController.swift in Sources */,
+				C96B205B22902F49002C2689 /* PillsViewController.swift in Sources */,
+				C96B205122902CFC002C2689 /* AddPillViewController.swift in Sources */,
+				C96B20682290342E002C2689 /* TextViewTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baker.pilltracker.Pilltracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baker.pilltracker.PilltrackerPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,7 +573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baker.pilltracker.Pilltracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baker.pilltracker.PilltrackerPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
