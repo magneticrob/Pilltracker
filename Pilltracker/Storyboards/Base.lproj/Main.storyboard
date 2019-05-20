@@ -217,6 +217,34 @@
                                             <outlet property="textView" destination="FNr-eY-hOR" id="Rh0-MG-zJg"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DoseTableViewCell" id="uaX-YT-47Q" customClass="DoseTableViewCell" customModule="Pilltracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uaX-YT-47Q" id="NZd-Mc-y8F">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="07:30" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uya-k4-9Vu">
+                                                    <rect key="frame" x="24" y="0.0" width="390" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="KOE-PJ-ZbI"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Uya-k4-9Vu" secondAttribute="trailing" id="3Tg-fu-8vf"/>
+                                                <constraint firstItem="Uya-k4-9Vu" firstAttribute="leading" secondItem="NZd-Mc-y8F" secondAttribute="leading" constant="24" id="DpR-Fe-MWI"/>
+                                                <constraint firstItem="Uya-k4-9Vu" firstAttribute="top" secondItem="NZd-Mc-y8F" secondAttribute="top" id="TiK-Oa-Q4u"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uya-k4-9Vu" secondAttribute="bottom" id="o38-lB-748"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="doseTextView" destination="Uya-k4-9Vu" id="NKK-71-5A8"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -253,7 +281,7 @@
         <scene sceneID="Leu-VF-YZd">
             <objects>
                 <navigationController id="zht-k7-WLl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pills" id="Qdu-Md-i3r"/>
+                    <tabBarItem key="tabBarItem" title="Pills" image="32" id="Qdu-Md-i3r"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cHz-Ga-394">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -304,6 +332,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="32" width="32" height="32"/>
         <image name="medicine" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>

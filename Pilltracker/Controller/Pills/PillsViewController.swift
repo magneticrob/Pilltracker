@@ -10,11 +10,7 @@ import UIKit
 
 class PillsViewController: UITableViewController {
 
-    var pills: [Pill] = UserDefaultsFetcher.init().savedPills() {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    var pills: [Pill] = UserDefaultsFetcher.init().savedPills()
     
     let userDefaults = UserDefaultsFetcher.init()
     
@@ -26,7 +22,7 @@ class PillsViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tableView.reloadData()
+        self.tableView.reloadSections(IndexSet.init([0]), with: .fade)
     }
     
     @IBAction func tappedAdd(_ sender: Any) {
@@ -57,6 +53,27 @@ class PillsViewController: UITableViewController {
         }
         
         return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if pills.isEmpty {
+            return nil
+        }
+        
+        let deleteAction = UITableViewRowAction.init(style: .destructive, title: "Delete pill") { (action, indexPath) in
+            self.pills.remove(at: indexPath.row)
+            self.userDefaults.updatePills(self.pills)
+            
+            if self.pills.isEmpty {
+                self.tableView.reloadSections(IndexSet.init([0]), with: .fade)
+            } else {
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.endUpdates()
+            }
+        }
+        
+        return [deleteAction]
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

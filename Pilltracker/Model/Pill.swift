@@ -10,8 +10,8 @@ import Foundation
 
 struct Pill: Codable {
     let id: UUID
-    let name: String
-    let mg: Int
-    let frequency: Int
-    let doseTimes: [Date]
+    var name: String
+    var mg: Int
+    var frequency: Int
+    var doseTimes: [Date]
 }

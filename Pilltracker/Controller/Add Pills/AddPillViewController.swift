@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DateToolsSwift
 
 protocol AddPillViewControllerDelegate: class {
     func addPillViewControllerExited()
@@ -18,13 +19,18 @@ class AddPillViewController: UIViewController {
         case Name
         case Mg
         case Frequency
-        case DoseTimes
     }
 
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: AddPillViewControllerDelegate?
     
-    var pill: Pill?
+    var pill: Pill? {
+        didSet {
+            if let pill = pill {
+                pillViewModel = PillViewModel.init(model: pill)
+            }
+        }
+    }
     var pillViewModel: PillViewModel?
     var pillNameField: UITextField?
     var pillMgField: UITextField?
@@ -38,8 +44,7 @@ class AddPillViewController: UIViewController {
         self.tableView.delegate = self
         
         if let pill = pill {
-            pillViewModel = PillViewModel.init(model: pill)
-            doseTimes = pill.doseTimes
+            updateDoseRows(frequency: pill.frequency, pill: pill)
         }
     }
     
@@ -71,15 +76,16 @@ class AddPillViewController: UIViewController {
             return
         }
         
-        var uuid: UUID!
+        var newPill: Pill?
         if let pill = pill {
-            uuid = pill.id
+            newPill = Pill.init(id: pill.id, name: pillName, mg: pillMg, frequency: frequency, doseTimes: doseTimes)
         } else {
-            uuid = UUID.init()
+            newPill = Pill.init(id: UUID.init(), name: pillName, mg: pillMg, frequency: frequency, doseTimes: doseTimes)
         }
         
-        let pill = Pill.init(id: uuid, name: pillName, mg: pillMg, frequency: frequency, doseTimes: doseTimes)
-        UserDefaultsFetcher.init().saveOrUpdate(pill: pill)
+        if let pill = newPill {
+            UserDefaultsFetcher.init().saveOrUpdate(pill: pill)
+        }
         
         self.dismiss()
     }
@@ -87,10 +93,51 @@ class AddPillViewController: UIViewController {
 
 extension AddPillViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 3 + doseTimes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row > 2 {
+            return self.tableView(tableView, doseTimeCellForRowAt: indexPath)
+        }
+        
+        return self.tableView(tableView, textViewCellForRowAt: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, doseTimeCellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DoseTableViewCell", for: indexPath) as? DoseTableViewCell else {
+            return UITableViewCell.init()
+        }
+        
+        let adjustedIndex = indexPath.row - 3
+        let dose = doseTimes[adjustedIndex]
+        cell.doseTextView.text = dose.format(with: "HH:mm")
+        
+        
+        if let datePickerView = UINib.init(nibName: "DatePickerKeyboardView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? DatePickerKeyboardView {
+            datePickerView.datePicker.textView = cell.doseTextView
+            datePickerView.datePicker.datePickerMode = .time
+            datePickerView.datePicker.date = dose
+            datePickerView.tag = adjustedIndex
+            datePickerView.backgroundColor = UIColor.white
+            
+            datePickerView.doneTapped = {
+                self.refreshDoseRows(datePickerView.datePicker)
+                cell.doseTextView.resignFirstResponder()
+            }
+            
+            datePickerView.changedBlock = {
+                self.refreshDoseRows(datePickerView.datePicker)
+            }
+            
+            cell.doseTextView.inputView = datePickerView
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, textViewCellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextViewTableViewCell", for: indexPath) as? TextViewTableViewCell, let row = AddPillViewControllerRows.init(rawValue: indexPath.row) else {
             return UITableViewCell.init()
         }
@@ -109,8 +156,6 @@ extension AddPillViewController: UITableViewDataSource, UITableViewDelegate {
             cell.textView.keyboardType = .numberPad
             cell.textView.text = pillViewModel?.frequencyCount()
             self.pillFrequencyField = cell.textView
-        } else if row == .DoseTimes {
-            cell.textView.placeholder = "Dosage Times"
         }
         
         cell.textView.delegate = self
@@ -125,6 +170,20 @@ extension AddPillViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView.init()
     }
+    
+    @objc func refreshDoseRows(_ sender: DatePickerWithLabel) {
+        let date = sender.date
+        doseTimes.remove(at: sender.tag)
+        doseTimes.insert(date, at: sender.tag)
+        
+        if let textView = sender.textView {
+            textView.text = date.format(with: "HH:mm")
+        }
+        
+        if var pill = pill {
+            pill.doseTimes = doseTimes
+        }
+    }
 }
 
 extension AddPillViewController: UITextFieldDelegate {
@@ -135,6 +194,63 @@ extension AddPillViewController: UITextFieldDelegate {
             let frequencyText = textField.text,
             let frequency = Int(frequencyText) else { return }
         
-        
+        self.updateDoseRows(frequency: frequency)
     }
+    
+    func updateDoseRows(frequency: Int, pill: Pill? = nil) {
+        
+        if frequency == doseTimes.count {
+            return
+        }
+        
+        if frequency == 0 {
+            doseTimes = []
+            tableView.reloadData()
+            return
+        }
+        
+        let today = Date.init()
+        var indexPaths: [IndexPath] = []
+        var shouldReturn = frequency < doseTimes.count
+        for (index, _) in doseTimes.enumerated() {
+            if index >= frequency, doseTimes.count >= index {
+                doseTimes.remove(at: index - 1)
+            }
+        }
+        
+        if var pill = self.pill {
+            pill.frequency = frequency
+            self.pill = pill
+        }
+        
+        if shouldReturn {
+            tableView.reloadData()
+            return
+        }
+        
+        let adjustedFrequency = frequency - doseTimes.count
+        
+        for index in 1...adjustedFrequency {
+            let date: Date?
+            
+            if let pill = pill, index - 1 < pill.doseTimes.count {
+                date = pill.doseTimes[index - 1]
+            } else {
+                date = Date.init(year: today.year, month: today.month, day: today.day, hour: 7, minute: 30, second: 0)
+            }
+            
+            if let date = date {
+                doseTimes.append(date)
+            }
+            
+            let indexPath = IndexPath.init(row: index, section: 0)
+            indexPaths.append(indexPath)
+        }
+        
+        tableView.reloadData()
+    }
+}
+
+class DatePickerWithLabel: UIDatePicker {
+    var textView: UITextField?
 }

@@ -1,0 +1,6 @@
+framework module Pods_PilltrackerTests {
+  umbrella header "Pods-PilltrackerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
