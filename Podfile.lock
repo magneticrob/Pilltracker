@@ -1,16 +1,23 @@
 PODS:
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
   - DateToolsSwift (4.0.0)
 
 DEPENDENCIES:
+  - Charts
   - DateToolsSwift
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs:
     - DateToolsSwift
+  trunk:
+    - Charts
 
 SPEC CHECKSUMS:
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
 
-PODFILE CHECKSUM: d2d7fec27f8aab5774f56ccf496394869ae68848
+PODFILE CHECKSUM: f4e7181552cd273d7f7c3c734710fc910ea7f8a4
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Pilltracker/Pods-Pilltracker-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework

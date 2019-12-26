@@ -10,6 +10,7 @@ target 'Pilltracker' do
 
   # Pods for Pilltracker
   pod 'DateToolsSwift'
+  pod 'Charts'
 
   target 'PilltrackerTests' do
     inherit! :search_paths
