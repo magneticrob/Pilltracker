@@ -1,5 +1,5 @@
 //
-//  UserDefaultsFetcher.swift
+//  PillService.swift
 //  Pilltracker
 //
 //  Created by Rob Baker on 18/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserDefaultsFetcher {
+class PillService {
     let userDefaults = UserDefaults.standard
     let dosagesKey = "dosages"
     let pillsKey = "dosages"
@@ -23,10 +23,12 @@ class UserDefaultsFetcher {
     
     func updatePills(_ pills: [Pill]) {
         userDefaults.setStructArray(pills, forKey: pillsKey)
+        CalendarService().updateCalendarEntries()
     }
     
     func updateDoses(_ doses: [Dose]) {
         userDefaults.setStructArray(doses, forKey: dosagesKey)
+        CalendarService().updateCalendarEntries()
     }
     
     func fetchPill(id: UUID) -> Pill? {

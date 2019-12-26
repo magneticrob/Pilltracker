@@ -13,5 +13,5 @@ struct Pill: Codable {
     var name: String
     var mg: Int
     var frequency: Int
-    var doseTimes: [Date]
+    var doses: [Dose]
 }

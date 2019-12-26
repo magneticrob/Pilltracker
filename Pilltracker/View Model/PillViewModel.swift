@@ -35,14 +35,17 @@ class PillViewModel {
         return "\(model.mg)"
     }
     
+    func doseTimes() -> [Date] {
+        return model.doses.map({$0.doseTime})
+    }
+    
     func times() -> String {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "HH:mm"
         
         var timesString = ""
-        model.doseTimes = model.doseTimes.sorted()
         
-        for date in model.doseTimes {
+        for date in doseTimes().sorted() {
             timesString.append("\(dateFormatter.string(from: date)), ")
         }
         
@@ -55,7 +58,7 @@ class PillViewModel {
         let now = Date.init()
         let referenceDate = Date.init(year: 0, month: 0, day: 0, hour: now.hour, minute: now.minute, second: now.second)
         var referenceDoses: [Date] = []
-        for dose in model.doseTimes {
+        for dose in doseTimes().sorted() {
             let referenceDose = Date.init(year: 0, month: 0, day: 0, hour: dose.hour, minute: dose.minute, second: dose.second)
             
             if referenceDose.isLater(than: referenceDate) {
@@ -63,7 +66,7 @@ class PillViewModel {
             }
         }
         
-        if referenceDoses.isEmpty, let firstDose = model.doseTimes.first {
+        if referenceDoses.isEmpty, let firstDose = doseTimes().sorted().first {
             return "Next dose at \(firstDose.format(with: "HH:mm"))"
         }
         

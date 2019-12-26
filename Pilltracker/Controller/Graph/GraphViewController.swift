@@ -21,32 +21,41 @@ class GraphViewController: UIViewController {
     }
     
     func setupChartView() {
+        
+        // Properties
         scatterChartView.delegate = self
-        
         scatterChartView.chartDescription?.enabled = false
-        
         scatterChartView.dragEnabled = true
         scatterChartView.setScaleEnabled(true)
         scatterChartView.maxVisibleCount = 200
         scatterChartView.pinchZoomEnabled = true
         
+        // Legend
         let l = scatterChartView.legend
-        l.horizontalAlignment = .right
-        l.verticalAlignment = .center
+        l.horizontalAlignment = .center
+        l.verticalAlignment = .top
         l.orientation = .vertical
         l.drawInside = false
         l.font = .systemFont(ofSize: 14, weight: .light)
         l.xOffset = 5
         
-        let leftAxis = scatterChartView.leftAxis
-        leftAxis.labelFont = .systemFont(ofSize: 10, weight: .light)
-        leftAxis.axisMinimum = 0
+        // Axes setup
         
-        scatterChartView.rightAxis.enabled = false
-        
-        
+        // X Axis
         let xAxis = scatterChartView.xAxis
         xAxis.labelFont = .systemFont(ofSize: 10, weight: .light)
+        
+        // Y (left) Axis
+        let yAxis = scatterChartView.leftAxis
+        let morningDoseTime = ChartLimitLine(limit: 730, label: "Scheduled Morning Dose Time")
+        yAxis.addLimitLine(morningDoseTime)
+        
+        let eveningDoseTime = ChartLimitLine(limit: 1930, label: "Scheduled Evening Dose Time")
+        yAxis.addLimitLine(eveningDoseTime)
+        yAxis.drawLimitLinesBehindDataEnabled = true
+        
+        // Disable other Y (right) axis
+        scatterChartView.rightAxis.enabled = false
     }
     
     func setDataCount(_ count: Int, range: UInt32) {
@@ -66,6 +75,7 @@ class GraphViewController: UIViewController {
         morningDoses.setScatterShape(.circle)
         morningDoses.setColor(ChartColorTemplates.colorful()[0])
         morningDoses.scatterShapeSize = 8
+        morningDoses.drawValuesEnabled = false
         
         let eveningDoses = ScatterChartDataSet(entries: values2, label: "Evening Dose")
         eveningDoses.setScatterShape(.circle)
@@ -73,6 +83,7 @@ class GraphViewController: UIViewController {
         eveningDoses.scatterShapeHoleRadius = 3.5
         eveningDoses.setColor(ChartColorTemplates.colorful()[1])
         eveningDoses.scatterShapeSize = 8
+        eveningDoses.drawValuesEnabled = false
         
         let data = ScatterChartData(dataSets: [morningDoses, eveningDoses])
         data.setValueFont(.systemFont(ofSize: 11, weight: .light))

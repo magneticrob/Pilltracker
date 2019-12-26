@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Pilltracker needs to access your calendar in order to remind you about when you should take your medication, and track how well you do it.</string>
 </dict>
 </plist>

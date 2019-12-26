@@ -77,14 +77,17 @@ class AddPillViewController: UIViewController {
         }
         
         var newPill: Pill?
-        if let pill = pill {
-            newPill = Pill.init(id: pill.id, name: pillName, mg: pillMg, frequency: frequency, doseTimes: doseTimes)
-        } else {
-            newPill = Pill.init(id: UUID.init(), name: pillName, mg: pillMg, frequency: frequency, doseTimes: doseTimes)
+        let pillId = pill?.id ?? UUID()
+        
+        var doses: [Dose] = []
+        for doseTime in doseTimes {
+            doses.append(Dose(id: UUID(), doseTime: doseTime, expectedDoseTime: doseTime, missedDose: false))
         }
         
+        newPill = Pill.init(id: pillId, name: pillName, mg: pillMg, frequency: frequency, doses: doses)
+        
         if let pill = newPill {
-            UserDefaultsFetcher.init().saveOrUpdate(pill: pill)
+            PillService.init().saveOrUpdate(pill: pill)
         }
         
         self.dismiss()
@@ -181,7 +184,12 @@ extension AddPillViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if var pill = pill {
-            pill.doseTimes = doseTimes
+            var doses: [Dose] = []
+            for doseTime in doseTimes {
+                let dose = Dose(id: UUID(), doseTime: doseTime, expectedDoseTime: doseTime, missedDose: false)
+                doses.append(dose)
+            }
+            pill.doses = doses
         }
     }
 }
@@ -233,8 +241,8 @@ extension AddPillViewController: UITextFieldDelegate {
         for index in 1...adjustedFrequency {
             let date: Date?
             
-            if let pill = pill, index - 1 < pill.doseTimes.count {
-                date = pill.doseTimes[index - 1]
+            if let pill = pill, index - 1 < pill.doses.count {
+                date = pill.doses[index - 1].doseTime
             } else {
                 date = Date.init(year: today.year, month: today.month, day: today.day, hour: 7, minute: 30, second: 0)
             }

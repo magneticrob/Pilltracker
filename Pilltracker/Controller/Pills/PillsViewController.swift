@@ -10,9 +10,8 @@ import UIKit
 
 class PillsViewController: UITableViewController {
 
-    var pills: [Pill] = UserDefaultsFetcher.init().savedPills()
-    
-    let userDefaults = UserDefaultsFetcher.init()
+    var pills: [Pill] = PillService().savedPills()
+    let pillService = PillService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +61,7 @@ class PillsViewController: UITableViewController {
         
         let deleteAction = UITableViewRowAction.init(style: .destructive, title: "Delete pill") { (action, indexPath) in
             self.pills.remove(at: indexPath.row)
-            self.userDefaults.updatePills(self.pills)
+            self.pillService.updatePills(self.pills)
             
             if self.pills.isEmpty {
                 self.tableView.reloadSections(IndexSet.init([0]), with: .fade)
@@ -104,6 +103,6 @@ class PillsViewController: UITableViewController {
 
 extension PillsViewController: AddPillViewControllerDelegate {
     func addPillViewControllerExited() {
-        self.pills = UserDefaultsFetcher.init().savedPills()
+        self.pills = pillService.savedPills()
     }
 }
